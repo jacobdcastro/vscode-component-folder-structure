@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jacobdcastro.com/schemas/vscode-file-creation.config.json",
+  "title": "VSCode File Creation Extension Config",
+  "description": "Determines the schema for configuring the VSCode File Creation extension.",
+  "type": "object",
+  "properties": {
+    "templates": {
+      "description": "...",
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "..."
+          },
+          "variables": {
+            "type": "array",
+            "description": "...",
+            "items": {
+              "type": "string",
+              "minItems": 0,
+              "uniqueItems": false
+            }
+          },
+          "templateType": {
+            "type": "string",
+            "enum": ["directory", "files"]
+          },
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "fileName": {
+                  "type": "string",
+                  "description": "..."
+                },
+                "contents": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minItems": 0,
+                    "uniqueItems": false
+                  }
+                }
+              }
+            }
+          },
+          "injections": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "filePath": {
+                  "type": "object",
+                  "properties": {
+                    "pathType": {
+                      "type": "string",
+                      "description": "..."
+                    },
+                    "path": {
+                      "type": "string",
+                      "description": "..."
+                    }
+                  }
+                },
+                "contents": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "required": ["name", "templateType"]
+      }
+    },
+    "settings": {
+      "type": "object",
+      "properties": {
+        "openCreatedFiles": {
+          "type": "boolean",
+          "description": "..."
+        },
+        "enableAutosave": {
+          "type": "boolean",
+          "description": "..."
+        },
+        "recommendExtension": {
+          "type": "boolean",
+          "description": "..."
+        },
+        "injectAlphabetically": {
+          "type": "boolean",
+          "description": "..."
+        }
+      }
+    }
+  }
+}

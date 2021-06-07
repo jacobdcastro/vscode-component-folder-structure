@@ -1,5 +1,5 @@
 {
-  "name": "component-folder-structure",
+  "name": "vscode-file-creation",
   "displayName": "Component Folder Structure",
   "description": "VS Code extension to create a React component's directory for easy named exports, and css file with .tsx module",
   "version": "0.0.1",
@@ -26,6 +26,12 @@
       {
         "command": "component-folder-structure.createComponentDir",
         "title": "Create Component Directory"
+      }
+    ],
+    "jsonValidation": [
+      {
+        "fileMatch": "config.schema.json",
+        "url": "./src/"
       }
     ]
   },

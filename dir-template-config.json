@@ -1,0 +1,71 @@
+{
+  "templates": [
+    {
+      "name": "Component",
+      "variables": [".root"],
+      "templateType": "directory",
+      "files": [
+        {
+          "fileName": "$_.tsx",
+          "contents": [
+            "import { FC } from 'react'",
+            "import s from './$_.module.css'",
+            "",
+            "const $_: FC = () => {",
+            "  return <div className={s$0}></div>",
+            "}",
+            "",
+            "export default $_"
+          ]
+        },
+        {
+          "fileName": "$_.module.css",
+          "contents": ["$0 {", "  @apply;", "}"]
+        },
+        {
+          "fileName": "index.ts",
+          "contents": ["export { default as $_ } from './$_'"]
+        }
+      ],
+      "injections": [
+        {
+          "filePath": {
+            "pathType": "relative",
+            "path": "../index.ts"
+          },
+          "contents": ["export { $_ } from './$_"]
+        }
+      ]
+    },
+    {
+      "name": "Redux Reducer",
+      "variables": ["/src/redux/"],
+      "templateType": "files",
+      "files": [
+        {
+          "fileName": "$_.ts",
+          "contents": ["// $_ Reducer"]
+        },
+        {
+          "fileName": "$_.ts",
+          "contents": ["// $_ Action"]
+        }
+      ],
+      "injections": [
+        {
+          "filePath": {
+            "pathType": "absolute",
+            "path": "/src/redux/index.ts"
+          },
+          "contents": ["// some $_ export"]
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "openCreatedFiles": true,
+    "enableAutosave": true,
+    "recommendExtension": false,
+    "injectAlphabetically": false
+  }
+}

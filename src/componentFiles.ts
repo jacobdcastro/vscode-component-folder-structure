@@ -18,7 +18,7 @@ export class ComponentFiles {
     this.tsxContent = this.str2uint(`import { FC } from 'react'
 import s from './${name}.module.css'
 
-const ${name}: FC = () => {
+const ${name}: FC =  () => {
   return <div className={s.root}></div>        
 }
       
@@ -36,6 +36,10 @@ export default ${name}`);
       `export { ${name} } from './${name}'`
     );
   }
+
+  public createFile() {}
+
+  public injectContent() {}
 
   // converts string to Uint8Array
   private str2uint(str: string): Uint8Array {
